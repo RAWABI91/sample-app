@@ -12,7 +12,7 @@ pipeline {
         AWS_EB_ENVIRONMENT = "Javawebapp-env"
         
         SONAR_IP = "52.23.193.18"
-        SONAR_TOKEN = s"sqp_c0240d6777002975e10e3e3bc4c72284825a6baa"
+        SONAR_TOKEN = "sqp_c0240d6777002975e10e3e3bc4c72284825a6baa"
 
     }
 
@@ -43,12 +43,12 @@ pipeline {
         
         stage('Quality Scan'){
             steps {
-                                sh '''
-                mvn clean verify sonar:sonar \
-                    -Dsonar.projectKey=online-RAWABI-B2D2 \
-                    -Dsonar.host.url=http://52.23.193.18 \
-                    -Dsonar.login=$SONAR_TOKEN
-                '''
+                 sh '''
+                      mvn clean verify sonar:sonar \
+                      -Dsonar.projectKey=online-RAWABI-B2D2 \
+                      -Dsonar.host.url=http://52.23.193.18 \
+                      -Dsonar.login=$SONAR_TOKEN
+                    '''
             
             }
         }
